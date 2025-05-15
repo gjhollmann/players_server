@@ -11,6 +11,7 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'static')));
 
 // Handling GET / request 
 //app.use("/:page", (req, res, next) => {
@@ -113,9 +114,7 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'static')));
+
 
 // http://localhost:3000/login
 app.get('/login', function(request, response) {
