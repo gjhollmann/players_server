@@ -176,4 +176,4 @@ app.get('/home', function(request, response) {
 app.listen(3000, () => {
     console.log("Server is Running. Login Page made at http://localhost:3000/login");
 })
-module.exports = app;
+
