@@ -9,7 +9,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 app.use(cors());
-
+app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
 // Handling GET / request 
@@ -23,23 +23,6 @@ app.use(express.json());
    //     return res.send(html)
  //   })
 //})
-
-// Handling GET /data request 
-/*
-app.get("/athlete_data", (req, res) => {
-    const name = req.query.name
-    const need = req.query.need
-	fs.readFile("athlete_pages/athlete_data/" + name + "/" + name + "_" + need + ".txt",'utf8',(err,data) => {
-		if (err){
-		    console.log("failed to read file")
-			console.error(err);
-			return
-		}
-		console.log("Data Sent");
-		res.send(data);
-	});
-})
-*/
 
 
 
