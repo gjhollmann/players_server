@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'static')));
  //   })
 //})
 
-
+app.get("/", (req, res) => res.send("Express on Vercel"));
 
 app.get("/athlete_data",(req,res) => {
     const table = req.query.table
