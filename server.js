@@ -7,6 +7,23 @@ const path = require('path');
 const fs = require('node:fs');
 const cors = require('cors');
 require('dotenv').config();
+const dataloc = {
+    "location": process.env.DOMAIN
+};
+const jsondataloc = JSON.stringify(dataloc, null, 2);
+fs.writeFile('location.json', jsondataloc, (err) => {
+  if (err) {
+    console.error('Error writing to file', err);
+  } else {
+    console.log('JSON file has been written successfully!');
+  }
+});
+
+
+
+
+
+
 
 app.use(cors());
 app.use(express.urlencoded({extended: true}))
@@ -26,6 +43,9 @@ app.use(express.static(path.join(__dirname, 'static')));
 //})
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
+
+
+
 
 app.get("/athlete_data",(req,res) => {
     const table = req.query.table
@@ -158,6 +178,9 @@ INSERT INTO athletes (name, intro, school, weight, hometown, class, height, inte
 */
 
 
+
+
+
 // http://localhost:3000/home
 app.get('/home', function(request, response) {
 	// If the user is loggedin
@@ -176,4 +199,3 @@ app.get('/home', function(request, response) {
 app.listen(3000, () => {
     console.log("Server is Running. Login Page made at http://localhost:3000/login");
 })
-
