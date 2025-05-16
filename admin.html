@@ -299,6 +299,7 @@ fetch("./location.json")
          });
 
 	function load_data(name,Id_ref,table){
+
         fetch(local + "/athlete_data?name=" + name + "&need=" + Id_ref + "&table=" + table, {
             method: 'GET',
             })
@@ -314,7 +315,7 @@ fetch("./location.json")
                 console.error("you messed up", error);
             });
     };
-
+//force update
 	function save_data(name,need,table){
 			var text_to_save = document.getElementById("txt_edit").value;
 			fetch(local + "/athlete_data?name=" + name + "&need=" + need + "&table=" + table, {

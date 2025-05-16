@@ -26,8 +26,9 @@ fs.writeFile('location.json', jsondataloc, (err) => {
 
 
 app.use(cors());
-
+app.use(express.urlencoded({extended: true}))
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'static')));
 
 // Handling GET / request 
 //app.use("/:page", (req, res, next) => {
@@ -41,24 +42,7 @@ app.use(express.json());
  //   })
 //})
 
-// Handling GET /data request 
-/*
-app.get("/athlete_data", (req, res) => {
-    const name = req.query.name
-    const need = req.query.need
-	fs.readFile("athlete_pages/athlete_data/" + name + "/" + name + "_" + need + ".txt",'utf8',(err,data) => {
-		if (err){
-		    console.log("failed to read file")
-			console.error(err);
-			return
-		}
-		console.log("Data Sent");
-		res.send(data);
-	});
-})
-*/
-
-
+app.get("/", (req, res) => res.send("Express on Vercel"));
 
 
 
@@ -150,9 +134,7 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'static')));
+
 
 // http://localhost:3000/login
 app.get('/login', function(request, response) {
