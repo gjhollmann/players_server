@@ -7,6 +7,23 @@ const path = require('path');
 const fs = require('node:fs');
 const cors = require('cors');
 require('dotenv').config();
+const dataloc = {
+    "location": process.env.DOMAIN
+};
+const jsondataloc = JSON.stringify(dataloc, null, 2);
+fs.writeFile('location.json', jsondataloc, (err) => {
+  if (err) {
+    console.error('Error writing to file', err);
+  } else {
+    console.log('JSON file has been written successfully!');
+  }
+});
+
+
+
+
+
+
 
 app.use(cors());
 
@@ -40,6 +57,9 @@ app.get("/athlete_data", (req, res) => {
 	});
 })
 */
+
+
+
 
 
 
@@ -174,6 +194,9 @@ app.post('/auth', function(request, response) {
 INSERT INTO athletes (name, intro, school, weight, hometown, class, height, interests, sport, positional_profile, body, hit, power, arm, defense, athletic_testing) VALUES
 ('Amos Aguilera', "Amos Aguilera is a 6\'1\", 170-pound first baseman from Fontana, CA, with a tall, projectable frame and room to add strength. A multi-sport athlete competing in basketball and wrestling, he brings athleticism, coordination, and toughness to the baseball field. Defensively, he has soft hands, solid footwork, and a strong feel for the glove, making him a reliable presence at first base. ",'Jurupa Hills High School', '200 lbs', 'Fontana, CA', 'Junior (2026)', '6\'4','Christian/ Believes in the lord, Fitness, WWE, Recovery & Wellness','Baseball/Basketball/Wrestling','1B','6-3, 200 pounds. Strong frame with present strength.','RHH. Slightly open stance that evens out when he strides. Hands rest away from back shoulder. Higher launch angle that produces a lot of fly balls. 64.3 mph bat speed with 12g of rotational acceleration.','89 mph max exit velocity (78 avg.); 339-foot max batted distance. Consistently pulls the ball.','RH. INF - 71.00 mph. Side arm release across the infield.','Calm footwork through the play.','7.55 runner in the 60-yard dash; Long, tall strides.');
 */
+
+
+
 
 
 // http://localhost:3000/home
